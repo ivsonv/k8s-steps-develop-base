@@ -3,10 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
-	"time"
 )
-
-var startedAt = time.Now()
 
 func main() {
 	http.HandleFunc("/", Hello)

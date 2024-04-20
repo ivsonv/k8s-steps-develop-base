@@ -1,3 +1,11 @@
+## kubernetes - K8S - API
+* $`kubectl` proxy --port=8080
+* http://localhost:8080/
+* http://localhost:8080/api/v1/namespaces/default/services/XX
+
+![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/c1e87b46-5318-4626-9659-1bba5e02cb5b)
+![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/bacf85c1-0726-4a03-8289-4644a9cc8539)
+
 ## Terminal Commands 
 * $ `kind` create cluster --config=configs/king.yml --name=clusterXXX
 * $ `kubectl` cluster-info --context kind-clusterXXX
@@ -29,5 +37,4 @@
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/16698637-24a0-4b4f-b441-fecbf20fe72c)
 
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/44ca2759-b34d-4464-b0c8-dc5a0215aca9)
-
 
