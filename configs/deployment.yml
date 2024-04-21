@@ -18,6 +18,13 @@ spec:
         - name: goserver
           image: "ivsonv/hello-go:v6"
 
+          startupProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            periodSeconds: 4
+            failureThreshold: 30
+
           readinessProbe:
             httpGet:
               path: /healthz
@@ -29,7 +36,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /healthz
-              port: 8000   # port-container
+              port: 8000   # port to container
 
             periodSeconds: 5
             failureThreshold: 3 #count ports to restart
