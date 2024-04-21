@@ -16,15 +16,25 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "ivsonv/hello-go:v3"
+          image: "ivsonv/hello-go:v6"
+
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000   # port-container
+
+            periodSeconds: 5
+            failureThreshold: 3 #count ports to restart
+            timeoutSeconds: 1
+            successThreshold: 1
+
           resources:
             requests: 
               cpu: "0.05"
               memory: 20Mi
             limits:
               cpu: "0.05"
-              memory: 25Mi d
-
+              memory: 25Mi
           envFrom:
             - configMapRef:
                 name: goserver-env
