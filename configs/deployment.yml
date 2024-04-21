@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: goserver    
-  replicas: 10
+  replicas: 2
   template:
     metadata:
       labels:
@@ -16,4 +16,15 @@ spec:
     spec:
       containers:
         - name: goserver
-          image: "ivsonv/hello-go:v2"
+          image: "ivsonv/hello-go:v3"
+          resources:
+            requests: 
+              cpu: "0.05"
+              memory: 20Mi
+            limits:
+              cpu: "0.05"
+              memory: 25Mi d
+
+          envFrom:
+            - configMapRef:
+                name: goserver-env

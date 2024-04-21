@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 )
 
 func main() {
@@ -11,6 +12,6 @@ func main() {
 }
 
 func Hello(w http.ResponseWriter, r *http.Request) {
-	name := "Ivson"
+	name := os.Getenv("SERVE_APP_NAME")
 	fmt.Fprintf(w, "Hello, I'm %s.", name)
 }
