@@ -29,6 +29,10 @@
 * $ `kubectl` apply -f configs/service.yml 
 * $ `kubectl` kubectl get services
 * $ `kubectl` port-forward svc/goserver-service 7000:8000
+* $ `kubectl` apply -f configs/metrics.yml 
+* $ `kubectl` kubectl top pod XXX
+* $ `kubectl` apply -f configs/hpa.yaml
+* $ `kubectl` kubectl get hpa
 
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/7e896790-1ea4-4922-ba21-7fa638c68d7a)
 
@@ -37,4 +41,3 @@
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/16698637-24a0-4b4f-b441-fecbf20fe72c)
 
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/44ca2759-b34d-4464-b0c8-dc5a0215aca9)
-
