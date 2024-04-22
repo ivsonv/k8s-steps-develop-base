@@ -6,6 +6,13 @@
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/c1e87b46-5318-4626-9659-1bba5e02cb5b)
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/bacf85c1-0726-4a03-8289-4644a9cc8539)
 
+## FORTIO - TEST STRESS & AUTO SCALE
+* `kubectl` run -it fortio --rm --image=fortio/fortio -- load -qps 800 -t 120s -c 70 "http://goserver-service/healthz"
+* `kubectl` get hpa
+* `watch` -n1 `kubectl` get pods
+* port default -> 80
+![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/a372bc7c-b595-4771-94fc-8d0b948cfef7)
+
 ## Terminal Commands 
 * $ `kind` create cluster --config=configs/king.yml --name=clusterXXX
 * $ `kubectl` cluster-info --context kind-clusterXXX
