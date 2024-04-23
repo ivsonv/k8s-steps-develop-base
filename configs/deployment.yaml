@@ -53,3 +53,12 @@ spec:
           envFrom:
             - configMapRef:
                 name: goserver-env
+
+          volumeMounts:
+            - mountPath: "/go/pvc"
+              name: goserver-volume
+
+      volumes:
+        - name: goserver-volume
+          persistentVolumeClaim:
+            claimName: goserver-pvc
