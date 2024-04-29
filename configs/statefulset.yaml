@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgresql
+spec:
+  replicas: 3
+  serviceName: postgresql-h
+  selector:
+      matchLabels:
+        app: postgresql
+  template:
+    metadata:
+      labels:
+        app: postgresql
+    spec:
+      containers:
+        - name: postgresql
+          image: postgres:16.2-alpine
+          env:
+            - name: POSTGRES_USER
+              value: root
+            - name: POSTGRES_PASSWORD
+              value: root
+          volumeMounts:
+            - mountPath: /var/lib/postgresql
+              name: postgresql-volume
+
+  volumeClaimTemplates:
+  - metadata:
+      name: postgresql-volume
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 2Gi
