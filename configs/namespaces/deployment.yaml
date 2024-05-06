@@ -11,7 +11,7 @@ spec:
       labels:
         app: server
     spec:
-      serviceAccount: server
+      serviceAccount: server # namespace/security -> metadata -> name
       containers:
       - name: server
         image: "ivsonv/hello-go:v6"

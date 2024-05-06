@@ -16,7 +16,8 @@
 
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/a372bc7c-b595-4771-94fc-8d0b948cfef7)
 
-# Terminal Commands 
+# Terminal Commands
+- $ `kubectl` api-resources (list recurses)
 - $ `kind` create cluster --config=configs/king.yaml --name=clusterXXX
 - $ `kubectl` cluster-info --context kind-clusterXXX
 - $ `kubectl` get nodes, pods, replicaset, deployment, services, hpa, pvc, ns, serviceaccounts,
