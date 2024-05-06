@@ -19,20 +19,22 @@
 # Terminal Commands 
 - $ `kind` create cluster --config=configs/king.yaml --name=clusterXXX
 - $ `kubectl` cluster-info --context kind-clusterXXX
-- $ `kubectl` get nodes, pods, replicaset, deployment, services, hpa, pvc, ns
-- $ `kubectl` config get-clusters
+- $ `kubectl` get nodes, pods, replicaset, deployment, services, hpa, pvc, ns, serviceaccounts,
+- $ `kubectl` config get-clusters, view, current-context, use-context
 - $ `kubectl` config use-context=kind-clusterXXX 
 - $ `kubectl` apply -f configs/XX.yaml (pod.yaml, replicaset.yaml, deployment.yaml, service.yaml, metrics.yaml, hpa.yaml)
+- $ `kubectl` apply -f configs/XX.yaml -n=homolog (namespace)
 - $ `kubectl` port-forward pod/goserver 7000:8000
 - $ `kubectl` delete pod XX
 - $ `kubectl` delete replicaset ???
 - $ `kubectl` describe pod ??name??
 - $ `kubectl` describe deployment goserver
-- $ `kubectl` rollout history deployment goserver (revisions)
-- $ `kubectl` rollout undo deployment goserver (LastVersion)
-- $ `kubectl` rollout undo deployment goserver --to-resision=??code revision??
+- $ `kubectl` rollout history deployment goserver (revisions) -roolback version
+- $ `kubectl` rollout undo deployment goserver (LastVersion) -roolback version
+- $ `kubectl` rollout undo deployment goserver --to-resision=??code revision?? -roolback version
 - $ `kubectl` port-forward svc/goserver-service 7000:8000
 - $ `kubectl` top pod XXX
+- $ `kubectl` create ns homolog
 - $ `kubectl` exec -it #PODNAME# -- bash
 
 # Certicate manager
