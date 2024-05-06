@@ -1,35 +1,54 @@
-## kubernetes - K8S - API
+# kubernetes - K8S - API
+```
 * $`kubectl` proxy --port=8080
 * http://localhost:8080/
 * http://localhost:8080/api/v1/namespaces/default/services/XX
 
+```
+
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/bacf85c1-0726-4a03-8289-4644a9cc8539)
 
-## FORTIO - TEST STRESS & AUTO SCALE
-* `kubectl` run -it fortio --rm --image=fortio/fortio -- load -qps 800 -t 120s -c 70 "http://goserver-service/healthz"
-* `kubectl` get hpa
-* `watch` -n1 `kubectl` get pods
-* port default -> 80
+# FORTIO - TEST STRESS & AUTO SCALE
+- `kubectl` run -it fortio --rm --image=fortio/fortio -- load -qps 800 -t 120s -c 70 "http://goserver-service/healthz"
+- `kubectl` get hpa
+- `watch` -n1 `kubectl` get pods
+- port default -> 80
+
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/a372bc7c-b595-4771-94fc-8d0b948cfef7)
 
-## Terminal Commands 
-* $ `kind` create cluster --config=configs/king.yaml --name=clusterXXX
-* $ `kubectl` cluster-info --context kind-clusterXXX
-* $ `kubectl` get nodes, pods, replicaset, deployment, services, hpa, pvc
-* $ `kubectl` config get-clusters
-* $ `kubectl` config use-context=kind-clusterXXX 
-* $ `kubectl` apply -f configs/XX.yaml (pod.yaml, replicaset.yaml, deployment.yaml, service.yaml, metrics.yaml, hpa.yaml)
-* $ `kubectl` port-forward pod/goserver 7000:8000
-* $ `kubectl` delete pod XX
-* $ `kubectl` delete replicaset ???
-* $ `kubectl` describe pod ??name??
-* $ `kubectl` describe deployment goserver
-* $ `kubectl` rollout history deployment goserver (revisions)
-* $ `kubectl` rollout undo deployment goserver (LastVersion)
-* $ `kubectl` rollout undo deployment goserver --to-resision=??code revision??
-* $ `kubectl` port-forward svc/goserver-service 7000:8000
-* $ `kubectl` top pod XXX
-* $ `kubectl` exec -it #PODNAME# -- bash
+# Terminal Commands 
+- $ `kind` create cluster --config=configs/king.yaml --name=clusterXXX
+- $ `kubectl` cluster-info --context kind-clusterXXX
+- $ `kubectl` get nodes, pods, replicaset, deployment, services, hpa, pvc, ns
+- $ `kubectl` config get-clusters
+- $ `kubectl` config use-context=kind-clusterXXX 
+- $ `kubectl` apply -f configs/XX.yaml (pod.yaml, replicaset.yaml, deployment.yaml, service.yaml, metrics.yaml, hpa.yaml)
+- $ `kubectl` port-forward pod/goserver 7000:8000
+- $ `kubectl` delete pod XX
+- $ `kubectl` delete replicaset ???
+- $ `kubectl` describe pod ??name??
+- $ `kubectl` describe deployment goserver
+- $ `kubectl` rollout history deployment goserver (revisions)
+- $ `kubectl` rollout undo deployment goserver (LastVersion)
+- $ `kubectl` rollout undo deployment goserver --to-resision=??code revision??
+- $ `kubectl` port-forward svc/goserver-service 7000:8000
+- $ `kubectl` top pod XXX
+- $ `kubectl` exec -it #PODNAME# -- bash
+
+# Certicate manager
+Configuring TLS in the application, see the documentation here
+
+- https://cert-manager.io/docs/installation/kubectl/
+
+```
+- kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.5/cert-manager.yaml
+```
+```
+kubectl pods -n cert-manager
+```
+![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/7a596d37-6553-450c-a224-690430e9a136)
+
+# screen terminal commands
 
 ![image](https://github.com/ivsonv/k8s-steps-initials/assets/63156114/7e896790-1ea4-4922-ba21-7fa638c68d7a)
 
